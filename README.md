@@ -28,10 +28,10 @@ This is part of the first available graphics projects at 42 and utilises the MLX
 ## Features
 #### Map Formatting
 Maps must be formatted correctly:
-    - .fdf file types
-    - Must be rectangular!
-    - Each number represents the altitude of any given point. It's line/column position represent the x and y axis.
-    - Each point may specify a color (optional). Such a colour must be in hexadecimal RGB representation and must follow a ',' immediately after the altitude (z) value. See the povided maps in test_maps for examples.
+- .fdf file types
+- Must be rectangular!
+- Each number represents the altitude of any given point. It's line/column position represent the x and y axis.
+- Each point may specify a color (optional). Such a colour must be in hexadecimal RGB representation and must follow a ',' immediately after the altitude (z) value. See the povided maps in test_maps for examples.
 
 ## Installation
 
