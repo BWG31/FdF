@@ -47,7 +47,7 @@ Maps must be formatted correctly:
 1. Clone the repository:
    ```sh
    git clone https://github.com/BWG31/FdF
-2. Compile the library:
+2. Compile the executable:
     ```sh
     make
 ## Usage
