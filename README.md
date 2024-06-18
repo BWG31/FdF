@@ -6,10 +6,7 @@ Create a program to represent landscapes in 3D (Wireframe)
 
 - [Overview](#overview)
 - [Features](#features)
-    - [Libc Functions](#libc-functions)
-    - [Additional Functions](#additional-functions)
-    - [Bonus Functions](#bonus-functions)
-    - [Custom Functions](#custom-functions)
+    - [Map Formatting](#libc-functions)
 - [Installation](#installation)
     - [Prerequisites](#prerequisites)
     - [Build Instructions](#build-instructions)
@@ -53,9 +50,10 @@ Maps must be formatted correctly:
 2. Compile the library:
     ```sh
     make
-3. Run the program:
+## Usage
+ - Standard use:
     ```sh
     ./fdf <map.fdf>
-4. Suggested map to try first:
+ - Suggested map to try first:
     ```sh
     ./fdf test_maps/42.fdf
