@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 10:20:34 by bgolding          #+#    #+#             */
-/*   Updated: 2024/01/02 10:35:41 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:05:09 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ int	shift_controls(t_mlx *data, int keycode)
 int	zoom_controls(t_mlx *data, int keycode)
 {
 	if (keycode == MINUS_KEY && data->map->zoom > 1)
-			data->map->zoom -= 1;
+		data->map->zoom -= 1;
 	else if (keycode == EQUAL_KEY)
-			data->map->zoom += 1;
+		data->map->zoom += 1;
 	else
 		return (0);
 	draw(data);

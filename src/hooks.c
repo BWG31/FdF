@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:55:55 by bgolding          #+#    #+#             */
-/*   Updated: 2024/01/04 12:29:12 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:05:26 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,25 @@ static int	fdf_key_down(int keycode, t_mlx *data)
 		fdf_close_window(data);
 	else if (keycode == MINUS_KEY || keycode == EQUAL_KEY)
 		return (zoom_controls(data, keycode));
-	else if ((keycode >= Q_KEY && keycode <= E_KEY) || \
-			(keycode >= A_KEY && keycode <= D_KEY))
+	else if (keycode == A_KEY || keycode == S_KEY || keycode == D_KEY \
+			|| keycode == Q_KEY || keycode == W_KEY || keycode == E_KEY)
 		return (rotate_controls(data, keycode));
 	if (keycode == R_KEY)
 		reset_map(data, keycode);
-	if (keycode >= NUMPAD_ONE && keycode <= NUMPAD_SIX)
+	if (keycode == NUMPAD_ONE || keycode == NUMPAD_TWO \
+		|| keycode == NUMPAD_THREE || keycode == NUMPAD_FOUR \
+		|| keycode == NUMPAD_FIVE || keycode == NUMPAD_SIX)
 		return (side_projection(data, keycode));
 	else if (keycode == ONE_KEY || keycode == TWO_KEY)
 		return (elevation_controls(data, keycode));
-	else if (LEFT_KEY <= keycode && keycode <= UP_KEY)
+	else if (keycode == UP_KEY || keycode == DOWN_KEY \
+			|| keycode == LEFT_KEY || keycode == RIGHT_KEY)
 		return (shift_controls(data, keycode));
 	return (0);
 }
 
 void	hook_manager(t_mlx *data)
 {
-	mlx_hook(data->win, 2, 0, fdf_key_down, data);
+	mlx_hook(data->win, 2, 1L << 0, fdf_key_down, data);
 	mlx_hook(data->win, 17, 0, fdf_close_window, data);
 }

@@ -6,7 +6,7 @@
 #    By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 09:48:10 by bgolding          #+#    #+#              #
-#    Updated: 2024/01/03 17:22:51 by bgolding         ###   ########.fr        #
+#    Updated: 2024/06/20 10:57:01 by bgolding         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,26 @@ INC_DIR			=	inc/
 LIBFT_DIR 		=	$(LIB)libft/
 MINILIBX_DIR	=	$(LIB)mlx/
 
+# OS specific settings
+UNAME_S			=	$(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	MINILIBX_DIR	:=	$(addsuffix Linux/, $(MINILIBX_DIR))
+	OS_FLAGS		:=	-lXext -lX11 -lm
+else ifeq ($(UNAME_S), OSX)
+	MINILIBX_DIR	:=	$(addsuffix MacOS/, $(MINILIBX_DIR))
+	OS_FLAGS		:=	-framework OpenGL -framework AppKit
+else
+	$(error OS not supported)
+	exit 1
+endif
+
 SRC_FILES		=	main hooks draw map map_utils draw_utils draw_settings rotate controls
 
 STATIC_LIBS		=	$(LIBFT_DIR)libft.a \
 					$(MINILIBX_DIR)libmlx.a
-					
+
+INC_PATHS		=	$(addprefix -I, $(INC_DIR) $(LIBFT_DIR)inc $(MINILIBX_DIR))
+
 SRCS			=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS			=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
@@ -46,11 +61,11 @@ $(STATIC_LIBS):
 				@echo "$(GREEN)Minilibx ready! $(DEF_COLOR)"
 
 $(NAME):		$(OBJ_DIR) $(OBJS) $(STATIC_LIBS)
-				$(CC) $(CFLAGS) -L$(LIBFT_DIR) -lft -L$(MINILIBX_DIR) -lmlx -framework OpenGL -framework AppKit $(OBJS) -o $@
+				@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -L$(MINILIBX_DIR) -lmlx $(OS_FLAGS) -o $@
 				@echo "$(GREEN)Successfully created program: $(NAME) $(DEF_COLOR)"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c | $(OBJ_DIR)
-				@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+				@$(CC) $(CFLAGS) $(INC_PATHS) -c $< -o $@
 
 $(OBJ_DIR):
 				@mkdir -p $@

@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:29:38 by bgolding          #+#    #+#             */
-/*   Updated: 2024/01/04 12:19:05 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:05:53 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,17 @@
 # include <errno.h>
 # include <stdio.h>
 
-# define WIDTH 1600
-# define HEIGHT 1000
+// OS specific keycodes
+# ifdef __APPLE__
+#  include "macos_keycodes.h"
+# elif defined __linux__
+#  include "linux_keycodes.h"
+# else
+#  error "Unsupported OS"
+# endif
 
-# define A_KEY 0
-# define S_KEY 1
-# define D_KEY 2
-# define G_KEY 5
-# define B_KEY 11
-# define Q_KEY 12
-# define W_KEY 13
-# define E_KEY 14
-# define R_KEY 15
-# define ONE_KEY 18
-# define TWO_KEY 19
-# define THREE_KEY 20
-# define EQUAL_KEY 24
-# define MINUS_KEY 27
-# define ESC_KEY 53
-# define NUMPAD_ONE 83
-# define NUMPAD_TWO 84
-# define NUMPAD_THREE 85
-# define NUMPAD_FOUR 86
-# define NUMPAD_FIVE 87
-# define NUMPAD_SIX 88
-# define UP_KEY 126
-# define DOWN_KEY 125
-# define LEFT_KEY 123
-# define RIGHT_KEY 124
+# define WIDTH 2400
+# define HEIGHT 1500
 
 typedef struct s_point
 {
