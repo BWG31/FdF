@@ -6,21 +6,11 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 09:50:49 by bgolding          #+#    #+#             */
-/*   Updated: 2024/01/02 10:47:44 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:23:13 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-static void	init_matrix(float matrix[6], float angle)
-{
-	matrix[0] = 1;
-	matrix[1] = 0;
-	matrix[2] = cos(angle);
-	matrix[3] = 0;
-	matrix[4] = sin(angle);
-	matrix[5] = cos(angle);
-}
 
 static void	set_axis(t_point *vec, char axis)
 {
@@ -43,12 +33,11 @@ static void	set_axis(t_point *vec, char axis)
 
 static void	rotate_3d(t_point *point, float angle, char axis)
 {
-	t_point	vec;
-	float	matrix[6];
+	t_point		vec;
+	const float	matrix[6] = {1, 0, cos(angle), 0, sin(angle), cos(angle)};
 
 	if (axis == 'y')
 		angle *= -1;
-	init_matrix(matrix, angle);
 	vec.x = point->x;
 	vec.y = point->y;
 	vec.z = point->z;
