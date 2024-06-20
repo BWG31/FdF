@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:29:38 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 13:05:53 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:10:41 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <math.h>
 # include <errno.h>
 # include <stdio.h>
+
+# include <X11/X.h>
 
 // OS specific keycodes
 # ifdef __APPLE__
@@ -104,7 +106,6 @@ void			set_origin_shift(t_point *start, t_point *finish, t_map *map);
 void			set_delta(t_delta *delta, t_point start, t_point finish);
 // draw_utils.c
 void			fdf_magic_pixel(t_mlx *data, int x, int y, int color);
-void			reset_img_color(t_mlx *data, int color);
 int				is_on_screen(t_point point);
 // rotate.c
 void			set_rotation(t_map *map, t_point *start, t_point *finish);

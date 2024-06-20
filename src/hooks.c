@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:55:55 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 13:05:26 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:47:19 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ static int	fdf_key_down(int keycode, t_mlx *data)
 
 void	hook_manager(t_mlx *data)
 {
-	mlx_hook(data->win, 2, 1L << 0, fdf_key_down, data);
-	mlx_hook(data->win, 17, 0, fdf_close_window, data);
+	mlx_hook(data->win, KeyPress, KeyPressMask, fdf_key_down, data);
+	mlx_hook(data->win, DestroyNotify, 0, fdf_close_window, data);
 }

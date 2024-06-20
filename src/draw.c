@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:41:20 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 12:52:19 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:10:51 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	draw(t_mlx *data)
 	int	x;
 	int	y;
 
-	reset_img_color(data, 0x000000);
+	ft_memset(data->data_addr, 0, WIDTH * HEIGHT * (data->bpp / 8));
 	y = 0;
 	while (y < data->map->height)
 	{
