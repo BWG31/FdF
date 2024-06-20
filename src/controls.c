@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 10:20:34 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 13:05:09 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:46:12 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 int	rotate_controls(t_mlx *data, int keycode)
 {
+	static float rotation_factor = M_PI / 45;
 	if (keycode == W_KEY)
-		data->map->rotation->x += M_PI / 45;
+		data->map->rotation->x += rotation_factor;
 	else if (keycode == D_KEY)
-		data->map->rotation->y += M_PI / 45;
+		data->map->rotation->y += rotation_factor;
 	else if (keycode == E_KEY)
-		data->map->rotation->z += M_PI / 45;
+		data->map->rotation->z += rotation_factor;
 	else if (keycode == S_KEY)
-		data->map->rotation->x -= M_PI / 45;
+		data->map->rotation->x -= rotation_factor;
 	else if (keycode == A_KEY)
-		data->map->rotation->y -= M_PI / 45;
+		data->map->rotation->y -= rotation_factor;
 	else if (keycode == Q_KEY)
-		data->map->rotation->z -= M_PI / 45;
+		data->map->rotation->z -= rotation_factor;
 	else
 		return (0);
 	draw(data);
