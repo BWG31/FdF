@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 10:20:34 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 14:46:12 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:02:46 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	rotate_controls(t_mlx *data, int keycode)
 {
-	static float rotation_factor = M_PI / 45;
+	static float	rotation_factor = M_PI / 45;
+
 	if (keycode == W_KEY)
 		data->map->rotation->x += rotation_factor;
 	else if (keycode == D_KEY)
@@ -58,12 +59,16 @@ int	shift_controls(t_mlx *data, int keycode)
 
 int	zoom_controls(t_mlx *data, int keycode)
 {
-	if (keycode == MINUS_KEY && data->map->zoom > 1)
-		data->map->zoom -= 1;
-	else if (keycode == EQUAL_KEY)
-		data->map->zoom += 1;
+	int	zoom_factor;
+
+	zoom_factor = data->map->zoom / 10 + 1;
+	if (keycode == MINUS_KEY && data->map->zoom > ZOOM_MIN)
+		data->map->zoom -= zoom_factor;
+	else if (keycode == EQUAL_KEY && data->map->zoom < ZOOM_MAX)
+		data->map->zoom += zoom_factor;
 	else
 		return (0);
+	printf("zoom: %d\n", data->map->zoom);
 	draw(data);
 	return (1);
 }

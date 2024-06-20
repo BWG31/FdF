@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:29:38 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 14:10:41 by bgolding         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:04:20 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@
 #  error "Unsupported OS"
 # endif
 
-# define WIDTH 2400
-# define HEIGHT 1500
+# define WIDTH (2400)
+# define HEIGHT (1500)
+
+# define ZOOM_MAX (1200)
+# define ZOOM_MIN (1)
 
 typedef struct s_point
 {
