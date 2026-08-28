@@ -60,4 +60,4 @@ Maps must be formatted correctly:
 
 ## Demo
 
-![42-logo-demo](./media/42-logo-demo.mov)
+![42-logo-demo](./media/42-logo-demo.gif)
