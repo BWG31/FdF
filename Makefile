@@ -6,7 +6,7 @@
 #    By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/02 09:48:10 by bgolding          #+#    #+#              #
-#    Updated: 2024/06/20 10:57:01 by bgolding         ###   ########.fr        #
+#    Updated: 2026/08/28 19:20:40 by bgolding         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ UNAME_S			=	$(shell uname -s)
 ifeq ($(UNAME_S), Linux)
 	MINILIBX_DIR	:=	$(addsuffix Linux/, $(MINILIBX_DIR))
 	OS_FLAGS		:=	-lXext -lX11 -lm
-else ifeq ($(UNAME_S), OSX)
+else ifeq ($(UNAME_S), Darwin)
 	MINILIBX_DIR	:=	$(addsuffix MacOS/, $(MINILIBX_DIR))
 	OS_FLAGS		:=	-framework OpenGL -framework AppKit
 else

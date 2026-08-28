@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 10:23:50 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 10:24:24 by bgolding         ###   ########.fr       */
+/*   Updated: 2026/08/28 19:25:01 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,9 @@
 # define DOWN_KEY 125
 # define LEFT_KEY 123
 # define RIGHT_KEY 124
+
+# define KEYPRESSMASK 1
+# define KEYPRESS 2
+# define DESTROYNOTIFY 17
 
 #endif

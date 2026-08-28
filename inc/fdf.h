@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:29:38 by bgolding          #+#    #+#             */
-/*   Updated: 2024/06/20 15:04:20 by bgolding         ###   ########.fr       */
+/*   Updated: 2026/08/28 19:25:51 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <math.h>
 # include <errno.h>
 # include <stdio.h>
-
-# include <X11/X.h>
 
 // OS specific keycodes
 # ifdef __APPLE__
