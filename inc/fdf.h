@@ -6,7 +6,7 @@
 /*   By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:29:38 by bgolding          #+#    #+#             */
-/*   Updated: 2026/08/28 19:25:51 by bgolding         ###   ########.fr       */
+/*   Updated: 2026/08/28 19:27:59 by bgolding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 #  error "Unsupported OS"
 # endif
 
-# define WIDTH (2400)
-# define HEIGHT (1500)
+# define WIDTH (1800)
+# define HEIGHT (1200)
 
 # define ZOOM_MAX (1200)
 # define ZOOM_MIN (1)

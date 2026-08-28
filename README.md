@@ -57,3 +57,7 @@ Maps must be formatted correctly:
  - Suggested map to try first:
     ```sh
     ./fdf test_maps/42.fdf
+
+## Demo
+
+![42-logo-demo](./media/42-logo-demo.mov)
